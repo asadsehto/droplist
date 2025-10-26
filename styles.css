@@ -1,0 +1,132 @@
+@layer body{
+    
+    body{
+        background-color: hwb(220 3% 74%);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        height: 100vh;
+        width: 100vw;
+        margin: 0px;
+        justify-content: center;
+        align-items: center;
+   /*    background: url("../wheather/bg.jpg") center/cover no-repeat; */
+    }
+}
+
+@layer components{
+    header{
+        display: flex;
+        margin-top: 0px;
+        grid-area: 1/span 1;
+        width: 100vw;       
+        height: auto;
+        margin: 10px;
+        justify-content:center;
+
+        #searchbar{
+              font-size:1.7em;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background-color: #1a2f4a;
+    width: 40vw;
+    border: 2px solid #00d4ff;
+    color: #e0f7ff;
+    box-shadow: 0px 0px 5px #00d4ff, 0px 0px 5px #0099cc;
+    animation: borderGlow 3s ease-out;
+
+        }
+
+
+
+        #searchbtn{
+           font-size: 1.7em;
+             padding: 10px 25px;
+             background: linear-gradient(135deg, #AA076B, #d9338e);
+            color: white;
+        border: none;
+        margin-inline-start: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0px 0px 15px #AA076B;
+        transition: all 0.4s ease;
+            &:hover{
+                   box-shadow: 0px 0px 25px #d9338e, 0px 0px 40px #AA076B;
+                     transform: scale(1);
+            }
+        }
+    }
+
+main{
+    grid-area: 2/ span 1;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+  
+    width: 100vw;
+    height: 100%;
+
+    .moviecard{
+        display: flex;
+        flex-wrap: wrap;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        width: 100%;
+        max-height: auto; 
+        margin: 1em 5px;
+        padding: 0px;  ;
+        max-width:400px;
+        border: 2px solid;
+        overflow: hidden;
+
+        img{ 
+            border: 2px solid;
+            min-width:100% ;
+            object-fit:cover;
+            max-height: 280px;
+        }
+        
+        h1{
+           
+            margin: 2px 0px;
+            padding: 2px 2px;
+            height: auto;
+            width: auto;
+            font-size: 2rem;
+            color: #AA076B;
+            font-weight: bold;
+        }
+
+        .plot{
+            color: aliceblue;
+            margin: 0px;
+            padding: 5px 4px;
+            font-display: fallback;
+
+        }
+        .info{
+            color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1rem;
+            margin: 0px;
+            padding: 5px 4px;
+
+        }
+        
+
+    }
+
+}
+@keyframes borderGlow {
+    0% {
+        box-shadow:  0px 0px 5px #ff009d, 0px 0px 20px #ff0ea2;
+        border-color: #821257;
+    }
+  
+ 
+}
+
+
+
+}
