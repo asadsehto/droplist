@@ -79,7 +79,6 @@ function display(moviedata) {
     dl.appendChild(dt2);
     dl.appendChild(dd2);
 
-
     top_movies.appendChild(article);
     options.onclick = function () {
       options.textContent = "💖";
