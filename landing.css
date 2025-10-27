@@ -1,0 +1,133 @@
+@layer body{
+    body{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+       min-height: 100vh;
+        align-content: center;
+        justify-content: center;
+        background-color: black;
+        overflow-x: hidden;
+        background-color: hwb(222 0% 95%);
+    }
+}
+
+
+@layer components{
+    main{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        h1{
+            font-weight: bold;
+            color: red;
+            background-color:transparent;
+            margin: auto auto;
+            padding: 1em;
+
+        }
+    
+.hero {
+  position: relative;
+}
+.hero img {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+}
+.hero .index-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  font-size: 2em;
+  font-weight: bold;
+  min-width: 100vw;
+  text-align: center;
+  background-color: black;
+  min-height: 20vh;
+align-content: center;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+}
+
+.top-movies{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100vw;
+    margin: 2px 0;
+    row-gap: 20px;
+    column-gap: 20px;
+    background-color: #00000000;
+     column-gap: 10em;
+     row-gap: 2em;
+
+     .moviecard{
+        display: flex;
+        flex-wrap: wrap;
+        background-color: transparent;
+        width: 100%;
+        max-height: auto; 
+        margin: 1em 5px;
+        padding: 0px;  
+        max-width:300px;
+        overflow: hidden;
+        align-items: baseline;
+
+   img{
+  border: 2px solid;
+  min-width: 100%;
+  object-fit:cover;
+  max-height: 300px;
+  transition: transform 0.3s ease ,box-shadow 0.3s ease;;
+
+  &:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #d9338e, 0 0 40px #aa076b;
+  }
+}
+        
+        h1{
+           position:sticky;
+            margin: 2px 0px;
+            padding: 2px 2px;
+            height: auto;
+            width: 70%;
+            font-size: 2rem;
+            color: #AA076B;
+            font-weight: bold;
+        }
+
+        .plot{
+            color: aliceblue;
+            margin: 0px;
+            padding: 5px 4px;
+            font-display: fallback;
+
+        }
+        .info{
+            color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1rem;
+            margin: 0px;
+            padding: 5px 4px;
+
+        }
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+}
+}

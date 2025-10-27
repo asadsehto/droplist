@@ -1,36 +1,13 @@
-const form = document.querySelector(".form");  
-const searchbar = document.getElementById("searchbar");
-const searchbtn = document.getElementById("searchbtn");
-const title =document.querySelectorAll(".title");      
-const plot = document.querySelectorAll(".plot");        
-const rating = document.querySelectorAll(".rating");    
-const release =document.querySelectorAll(".release");  
-const photo = document.querySelectorAll(".img"); 
-const apikey = "47e4fa0d75f28a0298434bef55557a04" ;
-const main = document.querySelector("main") 
-const playlist = [];    
-
-form.addEventListener("submit", async function(event){
-        event.preventDefault();
-        const movie = searchbar.value;
-        console.log(movie);
-        if(movie){
-          const moviedata = await  getdata(movie);
-        display(moviedata);
-        }
-        else{
-            console.log("enter a movie name")            
-        }
-})
-
-async function getdata(movie){
+const top_movies = document.querySelector(".top-movies");
+const main2 = document.querySelector(".main2");
+async function getdata(){
 
     try{
-         const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&query=${encodeURIComponent(movie)}`)
+         const response = await fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=47e4fa0d75f28a0298434bef55557a04')
         
            const data = await response.json(); 
+           display(data);
            console.log(data);
-           return data;
     }
 catch(error) {
     console.error(error);  
@@ -39,16 +16,17 @@ catch(error) {
 }
 
 function display(moviedata){
-    main.innerHTML="";
+    top_movies.innerHTML="";
 const {results } = moviedata;
 
 results.forEach(result=>{
 let article = document.createElement("article");
 article.classList.add("moviecard");  
 
- const { title: TITLE, release_date: YEAR, overview: plots, poster_path: IMG, vote_average: ratings } = result;
+const { title: TITLE, release_date: YEAR, overview: plots, poster_path: IMG, vote_average: ratings } = result;
 
-
+const toph1 = document.createElement("h1");
+toph1.textContent = "PEAK CINEMA"
 const tit =document.createElement( "h1")
 const plt = document.createElement("p")
 const imag =document.createElement("img")
@@ -102,7 +80,7 @@ dl.appendChild(dt2);
 dl.appendChild(dd2);
 
 
-main.appendChild(article);
+top_movies.appendChild(article);
 options.onclick = function() {
   options.textContent = "💖";
   playlist.push(article)
@@ -111,13 +89,4 @@ options.onclick = function() {
 
 })
 }
-
-/*movie = results[0];
-const { title: TITLE, release_date:YEAR, overview: plots, poster_path: IMG, vote_average: ratings } = movie;
-
-title.forEach((value)=>value.textContent = TITLE);
-release.forEach((value)=>value.textContent = YEAR);
-photo.forEach((value)=> value.src=`https://image.tmdb.org/t/p/w200` +IMG);
-plot.forEach((value)=>value.textContent =plots)
-rating.forEach((value)=>value.textContent =ratings) */
-
+getdata();

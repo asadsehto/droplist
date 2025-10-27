@@ -78,6 +78,32 @@ main{
         max-width:400px;
         border: 2px solid;
         overflow: hidden;
+        align-items: baseline;
+
+        #popup{
+            animation: popupGlow 1s ease-out;
+            background-color: #ff009d;
+            color: whitesmoke;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            
+
+        }
+
+        
+            
+        }
+
+        .option-button{
+            font-size: 20px;
+            margin-inline-end: 0px;
+            margin-inline-start: auto;
+         
+            &:hover{
+                 transform: scale(1.5);
+            }
+        }
 
         img{ 
             border: 2px solid;
@@ -91,7 +117,7 @@ main{
             margin: 2px 0px;
             padding: 2px 2px;
             height: auto;
-            width: auto;
+            width: 70%;
             font-size: 2rem;
             color: #AA076B;
             font-weight: bold;
@@ -118,6 +144,18 @@ main{
     }
 
 }
+
+@keyframes popupGlow {
+            from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 @keyframes borderGlow {
     0% {
         box-shadow:  0px 0px 5px #ff009d, 0px 0px 20px #ff0ea2;
@@ -125,8 +163,4 @@ main{
     }
   
  
-}
-
-
-
 }
