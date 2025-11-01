@@ -35,6 +35,7 @@
         align-items: center;
         background-color: var(--background);
         overflow-x: hidden;
+       
     }
 
     .header {
@@ -43,7 +44,7 @@
         justify-content: space-between;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 100vw;
         z-index: 10000;
         height: auto;
         max-height: 50px;
@@ -52,14 +53,15 @@
         animation: herotext 1.5s ease-in;
 
         nav {
+            justify-content: center;
+            align-items: center;
+            align-content: center;
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            
             align-content: center;
             align-items: center;
             width: 100%;
-            margin: 0px;
-            padding: 1em auto;
             font-size: 2em;
 
 
@@ -101,6 +103,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         margin: 0px;
+       
     }
 
     /* ============================================================
@@ -156,6 +159,10 @@
         animation: top_movie_heading linear;
         animation-timeline: view();
         animation-range: entry 1 cover 40%;
+
+        @media screen {max-width: 800px;
+         font-size: 1rem;   
+        }
     }
 
     .top-movies {
@@ -168,6 +175,7 @@
         align-items: center;
         background-color: transparent;
         position: relative;
+       
     }
 
     .top-movies:has(.moviecard.active) .moviecard {
@@ -244,7 +252,7 @@
         flex-direction: column;
         opacity: 0;
         animation: overlaydiv 1s ease-in;
-        left: 50%;
+     
         transform: translate(-50%, 50%);
         overflow: hidden;
         pointer-events: none;
@@ -258,7 +266,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        box-shadow: 0px 0px 20px var(--primary), 0px 0px 30px var(--secondary);
+        box-shadow: 0px 0px 10px var(--primary), 0px 10px px var(--secondary);
         display: flex;
         flex-direction: column;
         opacity: 1;
@@ -268,9 +276,10 @@
         z-index: 400;
         min-height: 400px;
         max-height: 80vh;
-        width: 90%;
-        max-width: 500px;
+        min-width: 100%;
         padding: 20px;
+        -webkit-backdrop-filter: blur(100px);
+        backdrop-filter: blur(100px);
         background: linear-gradient(135deg,
                 var(--surface) 0%,
                 rgba(45, 38, 53, 0.98) 50%,
@@ -281,19 +290,21 @@
     
     
         .plot {
-            display: flex;
-            flex-wrap: wrap;
-            overflow-y: auto;
+          
+        overflow-y: auto;
+        background: var(--background);
         color: var(--text-light);
         margin: 10px;
         padding: 10px;
-        border: 2px solid var(--text-gold);
-        max-width: 235px;
+   
+        max-width: 90%;
         max-height: 235px;
             
         line-height: 1.6;
         font-size: 1rem;
-    }
+          box-shadow:  0px 10px 10px var(--background);
+          
+        }
 
     .info {
         font-family: san-frans;
@@ -304,6 +315,7 @@
         margin: 10px 0;
         padding: 10px 0;
         align-items: center;
+      
     
 
          dt {
@@ -320,6 +332,39 @@
     }}
 }
 
+ @media screen and (max-width: 600px){
+        header{
+            min-width: 100vw;
+        }
+            .moviecard{
+                display: flex;
+                flex-direction: row;
+                min-width:20vw ;
+                max-width: 20vw;
+                max-height: 20vh;
+                min-height: 20vh;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+            }
+                    
+                .moviecard img{
+                    min-width: 100px;
+                    max-width: 100px;
+                    max-height: 150px;
+                    min-height: 150px;
+            
+                }
+            .overlay.show{
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                min-width: 200px;
+                max-width: 300px;
+
+            }    
+            
+        }
     /* ============================================================
        ANIMATIONS
        ============================================================ */
