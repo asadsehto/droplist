@@ -8,7 +8,21 @@ const release = document.querySelectorAll(".release");
 const photo = document.querySelectorAll(".img");
 const apikey = "47e4fa0d75f28a0298434bef55557a04";
 const main = document.querySelector("main")
+const hidden = document.createElement("div")
+
 const playlist = [];
+
+hidden.classList.add("overlay");
+hidden.addEventListener("mouseover" ,function(){
+hidden.style.display = "flex"
+
+})
+
+hidden.addEventListener("mouseout" ,function(){
+  hidden.style.display = "none"
+
+})
+
 
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
@@ -55,6 +69,7 @@ function display(moviedata) {
 
     const options = document.createElement("button");
     const popcard = document.createElement("p");
+    hidden.classList.add("overlay")
     popcard.id = "popup";
     popcard.setAttribute("popover", "auto")
     popcard.textContent = "Added to playlist 💕";
@@ -89,12 +104,16 @@ function display(moviedata) {
     imag.src = `https://image.tmdb.org/t/p/w200${IMG}`;
 
 
+
     article.appendChild(imag);
     article.appendChild(tit);
+    hidden.appendChild(tit);
     article.appendChild(options);
-    article.appendChild(plt);
-    article.appendChild(dl);
+    hidden.appendChild(plt);
+    hidden.appendChild(dl);
     article.appendChild(popcard);
+    article.appendChild(hidden);
+
 
     dl.appendChild(dt1);
     dl.appendChild(dd1);
@@ -111,13 +130,3 @@ function display(moviedata) {
 
   })
 }
-
-/*movie = results[0];
-const { title: TITLE, release_date:YEAR, overview: plots, poster_path: IMG, vote_average: ratings } = movie;
-
-title.forEach((value)=>value.textContent = TITLE);
-release.forEach((value)=>value.textContent = YEAR);
-photo.forEach((value)=> value.src=`https://image.tmdb.org/t/p/w200` +IMG);
-plot.forEach((value)=>value.textContent =plots)
-rating.forEach((value)=>value.textContent =ratings) */
-

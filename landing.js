@@ -1,5 +1,10 @@
 const top_movies = document.querySelector(".top-movies");
 const main2 = document.querySelector(".main2");
+
+
+
+
+
 async function getdata() {
 
   try {
@@ -30,7 +35,8 @@ function display(moviedata) {
     const tit = document.createElement("h1")
     const plt = document.createElement("p")
     const imag = document.createElement("img")
-
+    const hidden = document.createElement("div")
+    hidden.classList.add("overlay");
     const options = document.createElement("button");
     const popcard = document.createElement("p");
     popcard.id = "popup";
@@ -39,6 +45,8 @@ function display(moviedata) {
     options.setAttribute("popovertarget", "popup");
     options.textContent = "❤️";
     options.classList.add("option-button");
+     
+
 
     options.style.background = "transparent";
     options.style.border = "none";
@@ -69,15 +77,29 @@ function display(moviedata) {
 
     article.appendChild(imag);
     article.appendChild(tit);
+    hidden.appendChild(tit);
+
     article.appendChild(options);
-    article.appendChild(plt);
-    article.appendChild(dl);
+     hidden.appendChild(plt);
+    hidden.appendChild(dl);
+  
     article.appendChild(popcard);
+    article.appendChild(hidden)
 
     dl.appendChild(dt1);
     dl.appendChild(dd1);
     dl.appendChild(dt2);
     dl.appendChild(dd2);
+    imag.addEventListener("click",function (){
+  hidden.classList.toggle("show")
+  article.classList.toggle("active")
+  
+      hidden.addEventListener("click" , function(){
+        hidden.classList.remove("show")
+        article.classList.remove("active")
+      })
+})
+
 
     top_movies.appendChild(article);
     options.onclick = function () {
@@ -87,5 +109,7 @@ function display(moviedata) {
     };
 
   })
+
+
 }
 getdata();
