@@ -102,17 +102,17 @@ function display(moviedata) {
     // ============================================================
     // EVENT LISTENERS
     // ============================================================
-    imag.addEventListener("click", function() {
+    imag.addEventListener("click", function () {
       hidden.classList.toggle("show");
       article.classList.toggle("active");
     });
 
-    hidden.addEventListener("click", function() {
+    hidden.addEventListener("click", function () {
       hidden.classList.remove("show");
       article.classList.remove("active");
     });
 
-    options.onclick = function() {
+    options.onclick = function () {
       options.textContent = "💖";
       playlist.push(article);
       console.log(playlist);
